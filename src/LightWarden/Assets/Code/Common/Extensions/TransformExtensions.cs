@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Code.Common.Extensions
 {
@@ -33,13 +33,13 @@ namespace Code.Common.Extensions
       transform.localScale = transform.localScale.SetX(x);
       return transform;
     }
-    
+
     public static Transform LocalScaleY(this Transform transform, float y)
     {
       transform.localScale = transform.localScale.SetY(y);
       return transform;
     }
-    
+
     public static void SetScaleX(this Transform t, float scale) =>
       t.localScale = new Vector3(scale, t.localScale.y, t.localScale.z);
 

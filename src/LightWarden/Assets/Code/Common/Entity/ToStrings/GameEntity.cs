@@ -12,60 +12,60 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 public sealed partial class GameEntity : INamedEntity
 {
-    private EntityPrinter _printer;
+  private EntityPrinter _printer;
 
-    public override string ToString()
+  public override string ToString()
+  {
+    if (_printer == null)
+      _printer = new EntityPrinter(this);
+
+    _printer.InvalidateCache();
+
+    return _printer.BuildToString();
+  }
+
+  public string EntityName(IComponent[] components)
+  {
+    try
     {
-        if (_printer == null)
-            _printer = new EntityPrinter(this);
+      if (components.Length == 1)
+      {
+        return components[0].GetType().Name;
+      }
 
-        _printer.InvalidateCache();
+      foreach (IComponent component in components)
+      {
+        //switch (component.GetType())
+        //{
+        //    //case nameof(Hero):
+        //    //    return PrintHero();
 
-        return _printer.BuildToString();
+        //    //case nameof(Enemy):
+        //    //    return PrintEnemy();
+        //}
+      }
+
+    }
+    catch (Exception exception)
+    {
+      Debug.LogError(exception.Message);
     }
 
-    public string EntityName(IComponent[] components)
-    {
-        try
-        {
-            if (components.Length == 1)
-            {
-                return components[0].GetType().Name;
-            }
+    return components.First().GetType().Name;
+  }
 
-            foreach (IComponent component in components)
-            {
-                //switch (component.GetType())
-                //{
-                //    //case nameof(Hero):
-                //    //    return PrintHero();
+  //private string PrintHero()
+  //{
+  //    return new StringBuilder($"Hero ")
+  //      .With(s => s.Append($"Id:{Id}"), when: hasId)
+  //      .ToString();
+  //}
 
-                //    //case nameof(Enemy):
-                //    //    return PrintEnemy();
-                //}
-            }
+  //private string PrintEnemy() =>
+  //  new StringBuilder($"Enemy ")
+  //    .With(s => s.Append($"Id:{Id}"), when: hasId)
+  //    .ToString();
 
-        }
-        catch (Exception exception)
-        {
-            Debug.LogError(exception.Message);
-        }
-
-        return components.First().GetType().Name;
-    }
-
-    //private string PrintHero()
-    //{
-    //    return new StringBuilder($"Hero ")
-    //      .With(s => s.Append($"Id:{Id}"), when: hasId)
-    //      .ToString();
-    //}
-
-    //private string PrintEnemy() =>
-    //  new StringBuilder($"Enemy ")
-    //    .With(s => s.Append($"Id:{Id}"), when: hasId)
-    //    .ToString();
-
-    public string BaseToString() => base.ToString();
+  public string BaseToString() => base.ToString();
 }
 

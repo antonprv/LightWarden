@@ -9,7 +9,7 @@ namespace Code.Common.Extensions
       set.Invoke(self);
       return self;
     }
-    
+
     public static T With<T>(this T self, Action<T> apply, bool when)
     {
       if (when)

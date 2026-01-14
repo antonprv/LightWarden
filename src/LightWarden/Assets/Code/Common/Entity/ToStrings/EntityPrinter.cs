@@ -1,6 +1,8 @@
-﻿using System;
+using System;
 using System.Text;
+
 using DesperateDevs.Extensions;
+
 using Entitas;
 
 namespace Code.Common.Entity.ToStrings

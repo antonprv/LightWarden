@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace Code.Gameplay.StaticData
 {
-    public class StaticDataService : IStaticDataService
+  public class StaticDataService : IStaticDataService
+  {
+    public void LoadAll()
     {
-        public void LoadAll()
-        {
-            throw new NotImplementedException();
-        }
+      throw new NotImplementedException();
     }
+  }
 }

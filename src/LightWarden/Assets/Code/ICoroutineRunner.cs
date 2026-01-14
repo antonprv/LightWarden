@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Code.Infrastructure
 {
-    public interface ICoroutineRunner
-    {
-        Coroutine StartCoroutine(IEnumerator load);
-    }
+  public interface ICoroutineRunner
+  {
+    Coroutine StartCoroutine(IEnumerator load);
+  }
 }

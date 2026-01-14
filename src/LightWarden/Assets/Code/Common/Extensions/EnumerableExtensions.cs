@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+
 using UnityEngine;
 
 namespace Code.Common.Extensions
 {
-  public static class  EnumerableExtensions
+  public static class EnumerableExtensions
   {
     public static bool IsNullOrEmpty<T>(this IEnumerable<T> enumerable)
     {
@@ -17,7 +18,7 @@ namespace Code.Common.Extensions
       return !enumerable.Any();
     }
 
-    public static bool IsNullOrEmpty(this string str) => 
+    public static bool IsNullOrEmpty(this string str) =>
       !string.IsNullOrWhiteSpace(str);
 
     public static T PickRandom<T>(this IEnumerable<T> collection)

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Code.Common.Extensions
 {
@@ -9,7 +9,7 @@ namespace Code.Common.Extensions
     Collectable = 9,
     Clicker = 10,
   }
-  
+
   public static class CollisionExtensions
   {
     public static bool Matches(this Collider2D collider, LayerMask layerMask) =>
