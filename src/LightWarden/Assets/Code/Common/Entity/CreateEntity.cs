@@ -5,4 +5,5 @@ namespace Code.Common.Entity
     public static GameEntity Empty() =>
       Contexts.sharedInstance.game.CreateEntity();
   }
+}
 
