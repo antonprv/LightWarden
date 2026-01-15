@@ -1,0 +1,13 @@
+{
+  "name": "ReflexWarnings",
+  "references": [
+    "Reflex.Editor"
+  ],
+  "includePlatforms": [ "Editor" ],
+  "compilerOptions": {
+    "additionalCompilerArguments": [
+      "/nowarn:0618"
+    ]
+  }
+}
+

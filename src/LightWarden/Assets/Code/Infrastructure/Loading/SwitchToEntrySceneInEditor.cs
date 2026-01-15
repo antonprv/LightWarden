@@ -1,7 +1,8 @@
+using Code.Common.Extensions.ReflexExtensions;
+using Code.Infrastructure.Installers;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-using Zenject;
 
 namespace Code.Infrastructure.Loading
 {
@@ -13,7 +14,7 @@ namespace Code.Infrastructure.Loading
 
     private void Awake()
     {
-      if (ProjectContext.HasInstance)
+      if (RootContext.HasInstance)
         return;
 
       foreach (GameObject root in gameObject.scene.GetRootGameObjects())

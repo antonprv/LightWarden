@@ -67,5 +67,10 @@ public sealed partial class GameEntity : INamedEntity
   //    .ToString();
 
   public string BaseToString() => base.ToString();
+
+  public static implicit operator GameEntity(bool v)
+  {
+    throw new NotImplementedException();
+  }
 }
 
