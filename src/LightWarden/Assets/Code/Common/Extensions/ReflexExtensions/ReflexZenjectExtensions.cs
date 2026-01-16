@@ -1,7 +1,6 @@
-using System;
-using System.Linq;
+// Created by Anton Piruev in 2025. Any direct commercial use of derivative work is strictly prohibited.
+
 using Reflex.Core;
-using Reflex.Enums;
 
 namespace Code.Common.Extensions.ReflexExtensions
 {

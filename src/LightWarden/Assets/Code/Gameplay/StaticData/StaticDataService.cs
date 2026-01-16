@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+// Created by Anton Piruev in 2025. Any direct commercial use of derivative work is strictly prohibited.
 
-using UnityEngine;
+using System;
 
 namespace Code.Gameplay.StaticData
 {

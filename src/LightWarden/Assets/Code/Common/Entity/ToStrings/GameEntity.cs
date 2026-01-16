@@ -1,9 +1,9 @@
+// Created by Anton Piruev in 2025. Any direct commercial use of derivative work is strictly prohibited.
+
 using System;
 using System.Linq;
-using System.Text;
 
 using Code.Common.Entity.ToStrings;
-using Code.Common.Extensions;
 
 using Entitas;
 
