@@ -123,7 +123,5 @@ namespace Code.Common.Extensions.ReflexExtensions
       // Registration in Reflex
       _builder.RegisterType(concreteType, contractsToRegister, _lifetime, _resolution);
     }
-
   }
-
 }

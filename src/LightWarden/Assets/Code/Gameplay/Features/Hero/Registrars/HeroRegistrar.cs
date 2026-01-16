@@ -15,8 +15,8 @@ namespace Assets.Code.Gameplay.Features.Hero.Registrars
         AddWorldPosition(transform.position)
         .AddDirection(Vector2.zero)
         .AddSpeed(Speed)
-        .isMoving = true
         ;
+      _entity.isMoving = true;
     }
   }
 }

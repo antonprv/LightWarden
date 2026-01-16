@@ -1,17 +1,15 @@
-using System.Collections;
-
 using Assets.Code.Gameplay;
 
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Input.Service;
 
-using UnityEngine;
-
 using Reflex.Attributes;
 
-namespace Assets.Code.Infrastructure
+using UnityEngine;
+
+namespace Assets.Code.Infrastructure.EcsRunner
 {
-  public class EcsRunner : MonoBehaviour
+  public class EcsRunner : MonoBehaviour, IEcsRunner
   {
     private GameContext _gameObject;
     private ITimeService _timeService;

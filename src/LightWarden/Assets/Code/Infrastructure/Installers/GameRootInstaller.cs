@@ -1,3 +1,6 @@
+using Assets.Code.Infrastructure.EcsRunner;
+
+using Code.Common.Extensions.ReflexExtensions;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
@@ -8,29 +11,32 @@ using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
-using Code.Infrastructure.Installers;
 using Code.Infrastructure.Loading;
 
-using Code.Common.Extensions.ReflexExtensions;
-using Code.Common.Extensions;
-
 using Reflex.Core;
+
 using UnityEngine;
 
 namespace Code.Infrastructure.Installers
 {
   public class GameRootInstaller : ProjectRootInstaller
   {
-
     public override void InstallBindings(ContainerBuilder builder)
     {
-      BindInputService(builder);
+      BindRunner(builder);
+      BindContexts(builder);
+      BindCameraProvider(builder);
+      BindGameplayServices(builder);
       BindInfrastructureServices(builder);
       BindAssetManagementServices(builder);
       BindCommonServices(builder);
-      BindContexts(builder);
-      BindGameplayServices(builder);
-      BindCameraProvider(builder);
+      BindInputService(builder);
+    }
+
+    private void BindRunner(ContainerBuilder builder)
+    {
+      var runner = GameObject.FindAnyObjectByType<EcsRunner>();
+      builder.Bind<IEcsRunner>().FromInstance(runner).AsSingle();
     }
 
     private void BindContexts(ContainerBuilder builder)
@@ -42,9 +48,7 @@ namespace Code.Infrastructure.Installers
 
     private void BindCameraProvider(ContainerBuilder builder)
     {
-      builder.Bind<CameraProvider>()
-        .BindInterfacesAndSelf()
-        .AsSingle();
+      builder.Bind<CameraProvider>().BindInterfacesAndSelf().AsSingle();
     }
 
     private void BindGameplayServices(ContainerBuilder builder)
@@ -54,9 +58,7 @@ namespace Code.Infrastructure.Installers
     }
     private void BindInfrastructureServices(ContainerBuilder builder)
     {
-      builder.Bind<GameRootInstaller>()
-          .FromInstance(this)
-          .AsSingle();
+      builder.Bind<GameRootInstaller>().FromInstance(this).AsSingle();
 
       builder.Bind<IIdentifierService>().To<IdentifierService>().AsSingle();
     }

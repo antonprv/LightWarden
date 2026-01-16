@@ -16,9 +16,7 @@ namespace Assets.Code.Gameplay.Input.Systems
     {
       _inputService = inputService;
 
-      _inputs = gameContext.GetGroup(GameMatcher.AllOf(
-        GameMatcher.Input,
-        GameMatcher.AxisInput));
+      _inputs = gameContext.GetGroup(GameMatcher.Input);
     }
 
     public void Execute()
